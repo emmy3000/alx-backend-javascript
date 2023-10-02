@@ -28,7 +28,7 @@ sudo apt install nodejs -y
 - `babel-config.js`: Babel configuration for transpiling modern JavaScript code.
 - `package.json`: Project configuration.
 
-## Generated configuration files after running `npm init` and `npm install`.
+#### Generated configuration files after running `npm init` and `npm install`.
 
 - `package-lock.json`: Dependency lock file.
 - `node_modules/`: Project dependencies directory.
