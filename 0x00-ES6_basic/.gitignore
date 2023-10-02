@@ -1,0 +1,9 @@
+# Ignore Node.js modules
+node_modules/
+
+# Ignore npm logs
+npm-debug.log
+yarn-error.log
+
+# Exclude package-lock.json to avoid version conflicts
+package-lock.json
