@@ -15,25 +15,24 @@ Welcome to my ALX Backend JavaScript specialization repository! In this reposito
 - All of your functions must be exported
 
 
-Install NodeJS 12.11.x in the home directory:
+## Node Version Set up
+
+- Install NodeJS 12.11.x in the home directory:
 ```shell
 curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 sudo bash nodesource_setup.sh
 sudo apt install nodejs -y
 ```
 
-## Configuration Files
+```shell
+# OUTPUT
+$ nodejs -v
+v12.11.1
+$ npm -v
+6.11.3
+```
 
-- `.eslintrc.js`: ESLint configuration file.
-- `babel-config.js`: Babel configuration for transpiling modern JavaScript code.
-- `package.json`: Project configuration.
-
-#### Generated configuration files after running `npm init` and `npm install`.
-
-- `package-lock.json`: Dependency lock file.
-- `node_modules/`: Project dependencies directory.
-
-## Lists of Projects
+## Projects List
 
 1) [0x00-ES6 Basic](0x00-ES6_basic/)
 2) [0x01. ES6 Promises](0x01-ES6_promise/)
