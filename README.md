@@ -18,7 +18,7 @@ Welcome to my ALX Backend JavaScript specialization repository! In this reposito
 ## Node Version Set up
 
 - Install NodeJS 12.11.x in the home directory:
-```shell
+```bash
 curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh
 
 sudo bash nodesource_setup.sh
@@ -26,7 +26,7 @@ sudo bash nodesource_setup.sh
 sudo apt install nodejs -y
 ```
 
-```shell
+```bash
 $ nodejs -v
 v12.11.1
 
