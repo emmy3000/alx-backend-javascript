@@ -27,8 +27,6 @@ sudo apt install nodejs -y
 ```
 
 ```shell
-# OUTPUT
-
 $ nodejs -v
 v12.11.1
 
