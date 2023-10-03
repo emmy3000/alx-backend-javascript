@@ -2,7 +2,20 @@
 
 This project explores the fundamentals of ECMAScript 2015 (ES6), also known as ECMAScript 6 or JavaScript ES6. ES6 is a significant update to the JavaScript language, introducing new features, syntax enhancements, and improvements to make JavaScript code more expressive and efficient.
 
-## Table of Contents
+
+## Configuration Files
+
+- `.eslintrc.js`: ESLint configuration file.
+- `babel-config.js`: Babel configuration for transpiling modern JavaScript code.
+- `package.json`: Project configuration.
+
+#### Generated configuration files after running `npm init` and `npm install`.
+
+- `package-lock.json`: Dependency lock file.
+- `node_modules/`: Project dependencies directory.
+
+
+## Key Concepts
 
 1) [Introduction to ES6](#introduction-to-es6)
 2) [Constants and Variables](#constants-and-variables)
