@@ -16,3 +16,11 @@ var Teacher = /** @class */ (function () {
 var teacher3 = new Teacher('John', 'Doe', 'London');
 teacher3.contract = false; // Adding an additional attribute
 console.log(teacher3);
+var director1 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    location: 'London',
+    fullTimeEmployee: true,
+    numberOfReports: 17
+};
+console.log(director1);
