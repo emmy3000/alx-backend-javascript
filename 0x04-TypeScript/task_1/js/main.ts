@@ -24,3 +24,20 @@ const teacher3 = new Teacher('John', 'Doe', 'London');
 teacher3.contract = false; // Adding an additional attribute
 
 console.log(teacher3);
+
+/**
+ * Interface for Directors extending Teacher class.
+ */
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+
+console.log(director1);
