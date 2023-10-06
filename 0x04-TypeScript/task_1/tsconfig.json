@@ -3,10 +3,10 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "allowJs": true,
-    "moduleResolution": "node",
-        "skipLibCheck": true
-  }
+    "module": "commonjs",
+    "target": "ES6",
+    "skipLibCheck": true
+  },
+  "include": ["js/**/*.ts"],
+  "exclude": ["node_modules"]
 }
