@@ -54,18 +54,10 @@ var Directors = /** @class */ (function (_super) {
     Directors.prototype.getFullName = function () {
         return _super.prototype.getFullName.call(this);
     };
-    // Custom method to print properties
-    Directors.prototype.printProperties = function () {
-        for (var prop in this) {
-            if (this.hasOwnProperty(prop)) {
-                console.log("".concat(prop, ": ").concat(this[prop]));
-            }
-        }
-    };
     return Directors;
 }(Teacher));
 var director1 = new Directors('John', 'Doe', 'London', 17);
-director1.printProperties();
+console.log(director1.getFullName());
 /**
  * Function to print the first letter of the firstName and the full lastName.
  * @param {string} firstName - The first name of the teacher.
@@ -81,3 +73,22 @@ function printTeacher(firstName, lastName) {
 var teacherName = printTeacher;
 var result = teacherName('John', 'Doe');
 console.log(result); // Output: "J. Doe"
+/**
+ * Class representing a Student.
+ */
+var StudentClass = /** @class */ (function () {
+    function StudentClass(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    StudentClass.prototype.workOnHomework = function () {
+        return 'Currently working';
+    };
+    StudentClass.prototype.displayName = function () {
+        return this.firstName;
+    };
+    return StudentClass;
+}());
+var student = new StudentClass('Alice', 'Johnson');
+console.log(student.workOnHomework()); // Output: "Currently working"
+console.log(student.displayName()); // Output: "Alice"
