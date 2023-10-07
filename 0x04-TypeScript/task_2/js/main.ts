@@ -67,3 +67,33 @@ function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200).constructor.name);
 console.log(createEmployee(1000).constructor.name);
 console.log(createEmployee('$500').constructor.name);
+
+
+/**
+ * Type guard function to check if the employee is a Director.
+ * @param employee - The employee to check.
+ * @returns True if the employee is a Director, false otherwise.
+ */
+function isDirector(employee: Director | Teacher): employee is Director {
+  return 'workDirectorTasks' in employee;
+}
+
+/**
+ * Execute work based on the employee type.
+ * @param employee - The employee to execute work for.
+ */
+function executeWork(employee: Director | Teacher): void {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log(employee.workTeacherTasks());
+  }
+}
+
+// Example usage:
+const teacherEmployee = createEmployee(200);
+const directorEmployee = createEmployee(1000);
+
+executeWork(teacherEmployee);
+executeWork(directorEmployee);
+
