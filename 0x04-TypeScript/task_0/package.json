@@ -6,7 +6,9 @@
   "scripts": {
     "start-dev": "webpack-dev-server --open",
     "build": "webpack",
-    "test": "jest"
+    "test": "jest",
+    "start-app": "node dist/bundle.js",
+    "build-app": "webpack --config webpack.config.js"
   },
   "keywords": [
     "typescript",
@@ -27,6 +29,7 @@
     "@types/jest": "^24.0.23",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
+    "@webpack-cli/serve": "^2.0.5",
     "acorn": "^8.10.0",
     "babel-plugin-macros": "^3.1.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -39,7 +42,7 @@
     "ts-loader": "^6.2.0",
     "typescript": "^4.9.5",
     "webpack": "^5.88.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
