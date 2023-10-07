@@ -22,7 +22,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
   devServer: {
-    contentBase: "./dist"
+    static: "./dist"
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
