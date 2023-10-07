@@ -74,3 +74,21 @@ var teacherEmployee = createEmployee(200);
 var directorEmployee = createEmployee(1000);
 executeWork(teacherEmployee);
 executeWork(directorEmployee);
+/**
+ * Function to teach a class based on the subject.
+ * @param todayClass - The subject for today's class.
+ * @returns A string indicating what is being taught.
+ */
+function teachClass(todayClass) {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    else if (todayClass === 'History') {
+        return 'Teaching History';
+    }
+    else {
+        return 'Invalid subject';
+    }
+}
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
