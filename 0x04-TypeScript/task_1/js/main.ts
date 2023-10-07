@@ -54,19 +54,10 @@ class Directors extends Teacher {
   getFullName(): string {
     return super.getFullName();
   }
-
-  // Custom method to print properties
-  printProperties(): void {
-    for (const prop in this) {
-      if (this.hasOwnProperty(prop)) {
-        console.log(`${prop}: ${this[prop]}`);
-      }
-    }
-  }
 }
 
 const director1 = new Directors('John', 'Doe', 'London', 17);
-director1.printProperties();
+console.log(director1.getFullName());
 
 /**
  * Function to print the first letter of the firstName and the full lastName.
@@ -91,3 +82,38 @@ interface printTeacherFunction {
 const teacherName: printTeacherFunction = printTeacher;
 const result = teacherName('John', 'Doe');
 console.log(result); // Output: "J. Doe"
+
+/**
+ * Interface for a Student.
+ */
+interface Student {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+/**
+ * Class representing a Student.
+ */
+class StudentClass implements Student {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student = new StudentClass('Alice', 'Johnson');
+console.log(student.workOnHomework()); // Output: "Currently working"
+console.log(student.displayName()); // Output: "Alice"
