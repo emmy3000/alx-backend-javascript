@@ -1,7 +1,16 @@
-// 5-http.js
+/**
+ * Create an HTTP server, listen on a specified host and port,
+ * and handle requests for student information.
+ *
+ * @module http
+ * @returns {Object} HTTP server instance.
+ */
 
 const http = require('http');
 const { readFile } = require('fs');
+
+const host = '127.0.0.1';
+const port = 1245;
 
 function countStudents(fileName) {
   const students = {};
@@ -71,6 +80,6 @@ const app = http.createServer((req, res) => {
   }
 });
 
-app.listen(port=1245, host='127.0.0.1', () => {});
+app.listen(port, host, () => {});
 
 module.exports = app;
