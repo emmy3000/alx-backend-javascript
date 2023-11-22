@@ -1,14 +1,21 @@
-// 7-http_express.js
+/**
+ * Create an Express application, listen on a specified port,
+ * and handle requests for student information.
+ *
+ * @module http_express
+ * @returns {Object} Express application instance.
+ */
 
 const express = require('express');
 const { readFile } = require('fs').promises;
 
 const app = express();
+const port = 1245;
 
 function countStudents(path) {
   return readFile(path, 'utf-8')
     .then((data) => {
-      const lines = data.split('\n').filter(line => line.trim() !== '');
+      const lines = data.split('\n').filter((line) => line.trim() !== '');
 
       const students = {};
       const fields = {};
@@ -17,7 +24,7 @@ function countStudents(path) {
       lines.forEach((line, index) => {
         // Skip header line
         if (index !== 0) {
-          const [firstName, lastName, age, field] = line.split(',');
+          const [firstName, , , field] = line.split(',');
           if (!fields[field]) {
             fields[field] = 1;
           } else {
@@ -34,7 +41,7 @@ function countStudents(path) {
 
       let output = `Number of students: ${totalStudents}\n`;
 
-      Object.keys(fields).forEach(field => {
+      Object.keys(fields).forEach((field) => {
         const numStudentsInField = fields[field];
         const studentList = students[field].join(', ');
         output += `Number of students in ${field}: ${numStudentsInField}. List: ${studentList}\n`;
@@ -67,7 +74,7 @@ app.get('/students', async (req, res) => {
   }
 });
 
-app.listen(port=1245, () => {
+app.listen(port, () => {
 });
 
 module.exports = app;
