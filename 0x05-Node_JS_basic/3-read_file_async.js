@@ -1,11 +1,18 @@
-// 3-read_file_async.js
+/**
+ * Read file contents asynchronously from the given path,
+ * count and display student information.
+ *
+ * @param {string} path - The path to the file to be read.
+ * @returns {Promise<void>} A promise that resolves once
+ *  the student information is displayed.
+ */
 
 const { readFile } = require('fs').promises;
 
 function countStudents(path) {
   return readFile(path, 'utf-8')
     .then((data) => {
-      const lines = data.split('\n').filter(line => line.trim() !== '');
+      const lines = data.split('\n').filter((line) => line.trim() !== '');
 
       const students = {};
       const fields = {};
@@ -14,7 +21,7 @@ function countStudents(path) {
       lines.forEach((line, index) => {
         // Skip header line
         if (index !== 0) {
-          const [firstName, lastName, age, field] = line.split(',');
+          const [firstName, , , field] = line.split(',');
           if (!fields[field]) {
             fields[field] = 1;
           } else {
@@ -31,7 +38,7 @@ function countStudents(path) {
 
       console.log(`Number of students: ${totalStudents}`);
 
-      Object.keys(fields).forEach(field => {
+      Object.keys(fields).forEach((field) => {
         const numStudentsInField = fields[field];
         const studentList = students[field].join(', ');
         console.log(`Number of students in ${field}: ${numStudentsInField}. List: ${studentList}`);
