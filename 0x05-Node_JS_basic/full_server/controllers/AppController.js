@@ -1,11 +1,12 @@
 /**
  * AppController class containing route handlers for the app.
  *
- * Handles the "/" homepage route by responding with a
- * status 200 and "Hello Holberton School!" message.
+ * @class
+ * @classdesc Contains route handlers for the application.
  */
 
 class AppController {
+  // Handles the homepage route and sends a greeting message
   static getHomepage(req, res) {
     res.status(200).send('Hello Holberton School!');
   }
