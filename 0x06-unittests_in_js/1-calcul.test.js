@@ -7,11 +7,12 @@
 */
 
 const assert = require('assert');
-const calculateNumber = require('./1-calcul.js');
+const calculateNumber = require('./1-calcul');
 
 describe('calculateNumber', () => {
   function testOperation(description, type, a, b, expected) {
     it(description, () => {
+      expect.hasAssertions();
       assert.strictEqual(calculateNumber(type, a, b), expected);
     });
   }
