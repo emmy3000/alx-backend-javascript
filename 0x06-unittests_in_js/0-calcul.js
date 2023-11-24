@@ -1,6 +1,4 @@
 /*
-  calculateNumber.js
-
   This module defines the 'calculateNumber' function, which takes two numerical arguments,
   rounds them, and returns the sum of their rounded values.
 */
