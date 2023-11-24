@@ -9,53 +9,55 @@
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
+// Helper function to test a specific operation type
+function testOperation(type, description, a, b, expected) {
+  test(`${type}: ${description}`, () => {
+    assert.strictEqual(calculateNumber(type, a, b), expected);
+  });
+}
+
+// Top-level describe block for the calculateNumber function
 describe('calculateNumber', () => {
-  // Helper function for test cases
-  function testOperation(description, type, a, b, expected) {
-    it(description, () => {
-      assert.strictEqual(calculateNumber(type, a, b), expected);
-    });
-  }
-
-  // Test cases for SUM operation
+  // Tests for the 'SUM' operation
   describe('type == "SUM"', () => {
-    testOperation('should add two rounded numbers with equal positive numbers', 'SUM', 2.0, 2.0, 4);
-    testOperation('should add two rounded numbers with equal positive numbers (alternate)', 'SUM', 2.3, 1.8, 4);
-    testOperation('should add two rounded numbers with equal negative numbers', 'SUM', -2.0, -2.0, -4);
-    testOperation('should add two rounded numbers with equal negative numbers (alternate)', 'SUM', -2.3, -1.8, -4);
-    testOperation('should add two rounded numbers with negative and positive numbers', 'SUM', -2.0, 2.0, 0);
-    testOperation('should add two rounded numbers with positive and negative numbers', 'SUM', 2.0, -2.0, 0);
-    testOperation('should add two rounded numbers with 0 and 0', 'SUM', 0.0, 0.0, 0);
+    testOperation('SUM', 'equal positive numbers', 2.0, 3.0, 5);
+    testOperation('SUM', 'equal positive numbers (alternate)', 3.2, 1.9, 5);
+    testOperation('SUM', 'equal negative numbers', -2.0, -3.0, -5);
+    testOperation('SUM', 'equal negative numbers (alternate)', -3.2, -1.9, -5);
+    testOperation('SUM', 'negative and positive numbers', -3.0, 3.0, 0);
+    testOperation('SUM', 'positive and negative numbers', 3.0, -3.0, 0);
+    testOperation('SUM', '0 and 0', 0.0, 0.0, 0);
   });
 
-  // Test cases for SUBTRACT operation
+  // Tests for the 'SUBTRACT' operation
   describe('type == "SUBTRACT"', () => {
-    testOperation('should subtract b from a with equal positive numbers', 'SUBTRACT', 2.0, 2.0, 0);
-    testOperation('should subtract b from a with equal positive numbers (alternate)', 'SUBTRACT', 2.3, 1.8, 0);
-    testOperation('should subtract b from a with equal negative numbers', 'SUBTRACT', -2.0, -2.0, 0);
-    testOperation('should subtract b from a with equal negative numbers (alternate)', 'SUBTRACT', -2.3, -1.8, 0);
-    testOperation('should subtract b from a with negative and positive numbers', 'SUBTRACT', -2.0, 2.0, -4.0);
-    testOperation('should subtract b from a with positive and negative numbers', 'SUBTRACT', 2.0, -2.0, 4.0);
-    testOperation('should subtract b from a with 0 and 0', 'SUBTRACT', 0.0, 0.0, 0);
+    testOperation('SUBTRACT', 'equal positive numbers', 2.0, 3.0, -1);
+    testOperation('SUBTRACT', 'equal positive numbers (alternate)', 1.5, 1.5, 0);
+    testOperation('SUBTRACT', 'equal negative numbers', -2.0, -3.0, 1);
+    testOperation('SUBTRACT', 'equal negative numbers (alternate)', -1.5, -1.5, 0);
+    testOperation('SUBTRACT', 'negative and positive numbers', -2.0, 2.0, -4.0);
+    testOperation('SUBTRACT', 'positive and negative numbers', 2.0, -2.0, 4.0);
+    testOperation('SUBTRACT', '0 and 0', 0.0, 0.0, 0);
   });
 
-  // Test cases for DIVIDE operation
+  // Tests for the 'DIVIDE' operation
   describe('type == "DIVIDE"', () => {
-    testOperation('should divide a by b with positive numbers', 'DIVIDE', 8.0, 2.0, 4.0);
-    testOperation('should divide a by b with numbers of different signs', 'DIVIDE', -7.0, 2.0, -3.5);
-    testOperation('should divide a by b with numbers of different signs (alternate)', 'DIVIDE', 7.0, -2.0, -3.5);
-    testOperation('should divide a by b with negative numbers', 'DIVIDE', -7.0, -2.0, 3.5);
-    testOperation('should divide a by b with equal positive numbers', 'DIVIDE', 2.0, 2.0, 1);
-    testOperation('should handle division by zero and return Error', 'DIVIDE', 1.4, 0, 'Error');
-    testOperation('should handle division by zero with 0 and positive number and return Error', 'DIVIDE', 0.0, 5.0, 'Error');
-    testOperation('should handle division by zero with 0 and negative number and return Error', 'DIVIDE', 0.0, -5.0, 'Error');
-    testOperation('should handle division by zero with positive number and 0 and return Error', 'DIVIDE', 5.0, 0, 'Error');
-    testOperation('should handle division by zero with positive number and number rounded down to 0 and return Error', 'DIVIDE', 5.0, 0.2, 'Error');
-    testOperation('should handle division by zero with positive number and number rounded up to 0 and return Error', 'DIVIDE', 5.0, -0.2, 'Error');
-    testOperation('should handle division by zero with negative number and 0 and return Error', 'DIVIDE', -5.0, 0, 'Error');
-    testOperation('should handle division by zero with negative number and number rounded down to zero and return Error', 'DIVIDE', -5.0, 0.2, 'Error');
-    testOperation('should handle division by zero with negative number and number rounded up to zero and return Error', 'DIVIDE', -5.0, -0.2, 'Error');
-    testOperation('should handle division by zero with 0 and 0 and return Error', 'DIVIDE', 0.0, 0.0, 'Error');
+    testOperation('DIVIDE', 'positive numbers', 8.0, 2.0, 4.0);
+    testOperation('DIVIDE', 'numbers with different signs', -7.0, 2.0, -3.5);
+    testOperation('DIVIDE', 'numbers with different signs (alternate)', 7.0, -2.0, -3.5);
+    testOperation('DIVIDE', 'negative numbers', -7.0, -2.0, 3.5);
+    testOperation('DIVIDE', 'equal positive numbers', 2.0, 2.0, 1);
+    testOperation('DIVIDE', 'equal negative numbers', -2.0, -2.0, 1);
+    testOperation('DIVIDE', 'equal rounded up numbers', 2.6, 3.0, 1);
+    testOperation('DIVIDE', 'equal rounded down numbers', 2.4, 2.0, 1);
+    testOperation('DIVIDE', '0 and positive number', 0.0, 5.0, 0);
+    testOperation('DIVIDE', '0 and negative number', 0.0, -5.0, -0);
+    testOperation('DIVIDE', 'positive number and 0', 5.0, 0, 'Error');
+    testOperation('DIVIDE', 'positive number and number rounded down to 0', 5.0, 0.2, 'Error');
+    testOperation('DIVIDE', 'positive number and number rounded up to 0', 5.0, -0.2, 'Error');
+    testOperation('DIVIDE', 'negative number and 0', -5.0, 0, 'Error');
+    testOperation('DIVIDE', 'negative number and number rounded down to zero', -5.0, 0.2, 'Error');
+    testOperation('DIVIDE', 'negative number and number rounded up to zero', -5.0, -0.2, 'Error');
+    testOperation('DIVIDE', '0 and 0', 0.0, 0.0, 'Error');
   });
-
 });
