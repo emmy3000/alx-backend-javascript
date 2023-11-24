@@ -1,7 +1,7 @@
 /*
   Test suite for the 'calculateNumber' function.
 
-  This suite verifies the behavior of the calculateNumber function
+  This suite verifies the behaviour of the calculateNumber function
   in rounding and summing integer and decimal values.
 */
 
