@@ -14,21 +14,27 @@
 */
 
 function calculateNumber(type, a, b) {
-  const roundedA = Math.round(a);
-  const roundedB = Math.round(b);
+  // Helper function to round a number to two decimal places
+  const round = (num) => Math.round(num * 100) / 100;
 
+  // Ensure a and b are numbers
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('Both a and b must be numbers');
+  }
+
+  // Perform the operation based on the provided type
   switch (type) {
     case 'SUM':
-      return roundedA + roundedB;
+      return round(a + b);
     case 'SUBTRACT':
-      return roundedA - roundedB;
+      return round(a - b);
     case 'DIVIDE':
-      if (roundedB === 0) {
+      if (round(b) === 0) {
         return 'Error';
       }
-      return roundedA / roundedB;
+      return round(a / b);
     default:
-      throw new Error('Invalid type. Supported types are SUM, SUBTRACT, and DIVIDE.');
+      throw new Error('Invalid operation type. Supported types are: SUM, SUBTRACT, DIVIDE');
   }
 }
 
