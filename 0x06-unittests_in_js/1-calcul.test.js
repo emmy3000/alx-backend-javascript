@@ -57,4 +57,5 @@ describe('calculateNumber', () => {
     testOperation('should handle division by zero with negative number and number rounded up to zero and return Error', 'DIVIDE', -5.0, -0.2, 'Error');
     testOperation('should handle division by zero with 0 and 0 and return Error', 'DIVIDE', 0.0, 0.0, 'Error');
   });
+
 });
