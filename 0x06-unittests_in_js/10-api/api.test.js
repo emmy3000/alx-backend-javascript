@@ -15,9 +15,9 @@ const request = require('request');
 const { expect } = require('chai');
 
 // Define the test suite
-describe('GET / Cart page', () => {
+describe('Index page', () => {
   // Test case for the root endpoint
-  it('correct status code and body for / route', (done) => {
+  it('GET / correct status code and body for / route', (done) => {
     request.get('http://localhost:7865/', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Welcome to the payment system');
@@ -26,7 +26,7 @@ describe('GET / Cart page', () => {
   });
 
   // Test case for the valid :id in /cart/:id
-  it('correct status code and body for /cart/:id with valid :id', (done) => {
+  it('GET / correct status code and body for /cart/:id with valid :id', (done) => {
     request.get('http://localhost:7865/cart/12', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Payment methods for cart 12');
@@ -35,7 +35,7 @@ describe('GET / Cart page', () => {
   });
 
   // Test case for negative number in :id
-  it('correct status code for /cart/:id with negative number in :id', (done) => {
+  it('GET / correct status code for /cart/:id with negative number in :id', (done) => {
     request.get('http://localhost:7865/cart/-23', (error, response) => {
       expect(response.statusCode).to.equal(404);
       done();
@@ -43,7 +43,7 @@ describe('GET / Cart page', () => {
   });
 
   // Test case for non-numeric :id
-  it('correct status code and body for /cart/:id with non-numeric :id', (done) => {
+  it('GET / correct status code and body for /cart/:id with non-numeric :id', (done) => {
     request.get('http://localhost:7865/cart/c3p0-8o82-3fs1', (error, response, body) => {
       expect(response.statusCode).to.equal(404);
       // Check if the response body contains the expected content
@@ -53,7 +53,7 @@ describe('GET / Cart page', () => {
   });
 
   // Test case for the /available_payments endpoint
-  it('returns the correct payment methods', (done) => {
+  it('GET / returns the correct payment methods', (done) => {
     request.get('http://localhost:7865/available_payments', (error, response, body) => {
       const expectedResponse = {
         payment_methods: {
@@ -68,7 +68,7 @@ describe('GET / Cart page', () => {
   });
 
   // Test case for the /login endpoint
-  it('returns the correct welcome message', (done) => {
+  it('POST / returns the correct welcome message', (done) => {
     const userData = { userName: 'Betty' };
     request.post(
       {
