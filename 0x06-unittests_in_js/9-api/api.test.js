@@ -9,9 +9,9 @@ const request = require('request');
 const { expect } = require('chai');
 
 // Define the test suite
-describe('GET / Cart page', () => {
+describe('Cart page', () => {
   // Test case for the root endpoint
-  it('correct status code and body for / route', (done) => {
+  it('GET / correct status code and body for / route', (done) => {
     request.get('http://localhost:7865/', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Welcome to the payment system');
