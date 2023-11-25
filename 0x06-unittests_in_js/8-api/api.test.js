@@ -15,9 +15,9 @@
 const { expect } = require('chai');
 const request = require('request');
 
-describe('test index page', () => {
+describe('Index page', () => {
   // Check if the status code is 200 and the body is correct for the / route
-  it('correct status code and body for / route', () => new Promise((done) => {
+  it('GET / correct response status', () => new Promise((done) => {
     request.get('http://localhost:7865', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
       expect(body).to.equal('Welcome to the payment system');
