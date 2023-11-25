@@ -11,7 +11,7 @@ const calculateNumber = require('./1-calcul');
 
 // Helper function to test a specific operation type
 function testOperation(type, description, a, b, expected) {
-  test(`${type}: ${description}`, () => {
+  it(`${type}: ${description}`, () => {
     assert.strictEqual(calculateNumber(type, a, b), expected);
   });
 }
