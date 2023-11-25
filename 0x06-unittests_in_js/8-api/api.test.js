@@ -14,27 +14,54 @@
 
 const { expect } = require('chai');
 const request = require('request');
-const app = require('./api');
 
-describe('Test index page', () => {
-  it('correct status code', (done) => {
+describe('test index page', () => {
+  // Check if the status code is 200 and the body is correct for the / route
+  it('correct status code and body for / route', () => new Promise((done) => {
     request.get('http://localhost:7865', (error, response, body) => {
       expect(response.statusCode).to.equal(200);
-      done();
-    });
-  });
-
-  it('correct result', (done) => {
-    request.get('http://localhost:7865', (error, response, body) => {
       expect(body).to.equal('Welcome to the payment system');
       done();
     });
-  });
+  }));
 
-  context('additional tests', () => {
-    it('other', (done) => {
-      // Your additional test logic here
+  // Check if the status code is 404 for the /other route
+  it('correct status code for /other route', () => new Promise((done) => {
+    request.get('http://localhost:7865/other', (error, response) => {
+      expect(response.statusCode).to.equal(404);
       done();
     });
-  });
+  }));
+
+  // Check if the status code is 404 for the /about route
+  it('correct status code for /about route', () => new Promise((done) => {
+    request.get('http://localhost:7865/about', (error, response) => {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  }));
+
+  // Check if the status code is 404 for the /login route
+  it('correct status code for /login route', () => new Promise((done) => {
+    request.get('http://localhost:7865/login', (error, response) => {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  }));
+
+  // Check if the status code is 404 for the /contact route
+  it('correct status code for /contact route', () => new Promise((done) => {
+    request.get('http://localhost:7865/contact', (error, response) => {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  }));
+
+  // Check if the status code is 404 for the /services route
+  it('correct status code for /services route', () => new Promise((done) => {
+    request.get('http://localhost:7865/services', (error, response) => {
+      expect(response.statusCode).to.equal(404);
+      done();
+    });
+  }));
 });
